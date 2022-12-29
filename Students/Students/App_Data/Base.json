@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Fausto",
+    "lastName": "Vera",
+    "telephone": "11-997737770",
+    "ra": "0001-22"
+  },
+  {
+    "id": 2,
+    "name": "Roger",
+    "lastName": "Guedes",
+    "telephone": "11-997737770",
+    "ra": "0002-22"
+  }
+]
