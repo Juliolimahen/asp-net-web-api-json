@@ -1,16 +1,30 @@
 [
   {
-    "id": 1,
-    "name": "Fausto",
-    "lastName": "Vera",
-    "telephone": "11-997737770",
-    "ra": "0001-22"
+    "Id": 1,
+    "Name": "Fausto",
+    "LastName": "Vera",
+    "Telephone": "11-997737770",
+    "RA": "0001-22"
   },
   {
-    "id": 2,
-    "name": "Roger",
-    "lastName": "Guedes",
-    "telephone": "11-997737770",
-    "ra": "0002-22"
+    "Id": 2,
+    "Name": "Roger",
+    "LastName": "Guedes",
+    "Telephone": "11-997737770",
+    "RA": "0002-22"
+  },
+  {
+    "Id": 3,
+    "Name": "Renato",
+    "LastName": "Augusto",
+    "Telephone": "11-997737770",
+    "RA": "0003-22"
+  },
+  {
+    "Id": 4,
+    "Name": "Yuri",
+    "LastName": "Alberto",
+    "Telephone": "11-12039838",
+    "RA": "0004-22"
   }
 ]

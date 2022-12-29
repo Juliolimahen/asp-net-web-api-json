@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Students.Model;
+using Students.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,53 +11,48 @@ namespace Students.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _env;
+        private readonly IStudentRepository _repository;
 
-        public StudentController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
+        public StudentController(IStudentRepository repository)
         {
-            _env = env;
+            _repository = repository;
         }
 
         // GET: api/<StudentController>
         [HttpGet]
         public IEnumerable<Student> Get()
         {
-            Student student = new Student(_env);
-            return student.StudentsList();
+            return _repository.StudentsList();
         }
 
         // GET api/<StudentController>/5
         [HttpGet("{id}")]
         public Student Get(int id)
         {
-            Student student = new Student(_env);
-
             //return student.StudentsList().Where(x => x.Id == id).FirstOrDefault();
-
-            return student.StudentsList().FirstOrDefault(x => x.Id == id);
+            return _repository.StudentsList().FirstOrDefault(x => x.Id == id);
         }
 
         // POST api/<StudentController>
         [HttpPost]
         public List<Student> Post(Student student)
         {
-            List<Student> students = new List<Student>();
-
-            students.Add(student);
-
-            return students;
+            _repository.Create(student);
+            return _repository.StudentsList();
         }
 
         // PUT api/<StudentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public Student Put(int id, [FromBody] Student student)
         {
+            return _repository.Update(id, student);
         }
 
         // DELETE api/<StudentController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _repository.Delete(id);
         }
     }
 }
